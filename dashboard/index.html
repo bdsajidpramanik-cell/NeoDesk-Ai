@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeoDesk AI — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0b1f1a;
+    --teal-deep:#0a3830;
+    --teal:#12554a;
+    --paper:#f3f5f2;
+    --card:#ffffff;
+    --line:#dee4dd;
+    --line-2:#eaeee8;
+    --muted:#5b6570;
+    --muted-2:#94a09a;
+    --accent:#c6862b;
+    --accent-l:#dba552;
+    --ok:#1f9e78;
+    --ok-bg:#e6f6ef;
+    --warn:#c6862b;
+    --warn-bg:#fbf1df;
+    --danger:#b23b3b;
+    --danger-bg:#fbeaea;
+    --radius:14px;
+    --radius-sm:10px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Inter',sans-serif; background:var(--paper); color:var(--ink);
+    -webkit-font-smoothing:antialiased; min-height:100vh;
+  }
+  .mono{font-family:'JetBrains Mono',monospace;}
+  h1,h2,h3,.disp{font-family:'Space Grotesk',sans-serif;}
+  button{font-family:inherit; cursor:pointer;}
+  a{color:inherit; text-decoration:none;}
+  ::selection{background:var(--ok-bg); color:var(--teal-deep);}
+
+  *:focus-visible{outline:2px solid var(--teal); outline-offset:2px; border-radius:4px;}
+
+  /* ---------------- LAYOUT ---------------- */
+  .app{display:flex; min-height:100vh;}
+
+  /* SIDEBAR */
+  .sidebar{
+    width:230px; background:var(--teal-deep); color:#c8d6d1; flex-shrink:0;
+    display:flex; flex-direction:column; padding:22px 16px;
+    position:fixed; top:0; bottom:0; left:0; transition:transform .25s ease; z-index:40;
+  }
+  .sb-brand{display:flex; align-items:center; gap:10px; padding:0 8px 22px; border-bottom:1px solid rgba(255,255,255,.1); margin-bottom:18px;}
+  .sb-brand-icon{
+    width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg,var(--ok),var(--teal));
+    display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-weight:700; color:#1a1204; font-size:15px; flex-shrink:0;
+  }
+  .sb-brand-text .name{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14.5px; color:#fff; line-height:1.2;}
+  .sb-brand-text .tag{font-size:10px; color:#8b96ab; margin-top:1px;}
+
+  .sb-nav{display:flex; flex-direction:column; gap:2px; flex:1;}
+  .sb-link{
+    display:flex; align-items:center; gap:11px; padding:10px 12px; border-radius:var(--radius-sm);
+    font-size:13.5px; font-weight:500; color:#aab4c4; transition:background .15s ease, color .15s ease;
+    background:none; border:none; width:100%; text-align:left;
+  }
+  .sb-link svg{width:17px; height:17px; flex-shrink:0; opacity:.85;}
+  .sb-link:hover{background:rgba(255,255,255,.06); color:#fff;}
+  .sb-link.active{background:rgba(255,255,255,.1); color:#fff;}
+  .sb-link .count{
+    margin-left:auto; background:rgba(255,255,255,.12); font-size:10.5px; padding:2px 7px;
+    border-radius:20px; font-family:'JetBrains Mono',monospace;
+  }
+  .sb-link.active .count{background:var(--accent); color:#241505; font-weight:600;}
+
+  .sb-foot{padding-top:16px; border-top:1px solid rgba(255,255,255,.1); font-size:11px; color:#7c88a0;}
+  .sb-foot .who{display:flex; align-ite
